@@ -1,0 +1,7 @@
+io
+uvicorn
+numpy
+nest_asyncio
+enum
+fastapi
+pydantic
