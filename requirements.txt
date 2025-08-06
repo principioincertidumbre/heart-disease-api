@@ -1,8 +1,6 @@
-joblib
+fastapi[all]
 uvicorn
 numpy
-nest_asyncio
-fastapi
-pydantic
-requests
+joblib
 xgboost==3.0.2
+pydantic
