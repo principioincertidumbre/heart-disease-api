@@ -111,3 +111,74 @@ jupyter lab
 ```
 # API en Render
 https://heart-disease-api-m7x0.onrender.com/
+
+## Estructura JSON de entrada
+
+
+
+## Valores esperados para cada campo
+
+El conjunto de datos seleccionado para entrenar el modelo es "Heart Disease Dataset", el cual considera las siguientes variables o atributos:
+
+age: edad del paciente.
+
+sex: sexo (1 = hombre, 0 = mujer).
+
+cp: tipo de dolor en el pecho (categorías de 1 a 4, denominadas 1: angina típica, 2: angina atípica, 3: dolor torácico que no es causado por angina, 4: asintomático).
+
+trestbps: presión arterial en reposo (en mm Hg).
+
+chol: nivel de colesterol en sangre (mg/dl).
+
+fbs: glucemia en ayunas (> 120 mg/dl, 1 = verdadero; 0 = falso).
+
+restecg: resultados del electrocardiograma en reposo (0: normal, 1: tiene anomalías de la onda ST-T wave (inversiones de la onda T y/o elevación o depresión ST de > 0.05 mV), 2: muestra probablemente o definitivamente hipertrofia del ventrículo izquierdo según los criterios de Estes).
+
+thalach: frecuencia cardíaca máxima alcanzada.
+
+exang: angina inducida por ejercicio (1 = sí, 0 = no).
+
+oldpeak: depresión ST inducida por el ejercicio en relación al reposo.
+
+slope: Pendiente del segmento ST del ejercicio máximo. (1: ascendente, 2: plana, 3: descendente)
+
+ca: número de vasos principales coloreados por fluoroscopia (de 0 a 3).
+
+thal: talasemia (1 = normal, 2 = defecto fijo, 3 = defecto reversible)
+
+**Resultados esperados de una consulta válida:**
+
+target: variable objetivo (1 = presencia de enfermedad, 0 = ausencia).
+
+## Ejemplos de consultas válidas
+
+Ejemplo 1:
+
+item_features =  {
+    "age": 41,
+    "sex": 1,
+    "cp":  0,
+    "trestbps": 110,
+    "chol": 172,
+    "fbs":  0,
+    "restecg": 0,
+    "thalach": 158,
+    "exang": 0,
+    "oldpeak": 0,
+    "slope": 2,
+    "ca": 3,
+    "thal": 2
+}
+
+prediction = response_from_server(full_url, item_features)<br>
+prediction.text
+
+Respuesta:
+
+¡Todo funcionó bien!
+
+'{"predicted_class":0}'
+
+
+
+
