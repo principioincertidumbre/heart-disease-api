@@ -31,8 +31,19 @@ Luego debemos activar el ambiente virtual:
 ```
 conda activate heart-disease-api
 ```
-## Instalando las dependencias usando PIP
-
+## 2. Instalando las dependencias usando PIP
+```
+pip install -r requirements.txt
+```
+## 3. Instalando el kernel de Jupyter Lab correspondiente al proyecto
+```
+python -m ipykernel install --user --name heart-disease-api
+``` 
+## 4.Iniciando Jupyter Lab
+```
+jupyter lab
+```
+Después de completar estos pasos puede ejecutar el script del servidor desde la terminal de Python 3 y el Jupyter Notebook del cliente localmente.
 
 # API en Render
 https://heart-disease-api-m7x0.onrender.com/
