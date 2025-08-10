@@ -141,25 +141,25 @@ item_features =  {
 
 El conjunto de datos seleccionado para entrenar el modelo es "Heart Disease Dataset", el cual considera las siguientes variables o atributos:
 
-age: edad del paciente
+age: edad del paciente (el rango de edad considerado en el modelo es de 29 a 77 años)
 
 sex: sexo (1 = hombre, 0 = mujer)
 
 cp: tipo de dolor en el pecho (categorías de 1 a 4, denominadas 1: angina típica, 2: angina atípica, 3: dolor torácico que no es causado por angina, 4: asintomático)
 
-trestbps: presión arterial en reposo (en mm Hg)
+trestbps: presión arterial en reposo (en mm Hg, rango estudiado: 94-200 mmHg)
 
-chol: nivel de colesterol en sangre (mg/dl)
+chol: nivel de colesterol en sangre (mg/dl, rango estudiado: 126-564 mg/dL)
 
 fbs: glucemia en ayunas (> 120 mg/dl, 1 = verdadero; 0 = falso)
 
 restecg: resultados del electrocardiograma en reposo (0: normal, 1: tiene anomalías de la onda ST-T (inversiones de la onda T y/o elevación o depresión ST de > 0.05 mV), 2: muestra probablemente o definitivamente hipertrofia del ventrículo izquierdo según los criterios de Estes)
 
-thalach: frecuencia cardíaca máxima alcanzada
+thalach: frecuencia cardíaca máxima alcanzada (rango estudiado: 71-202)
 
 exang: angina inducida por ejercicio (1 = sí, 0 = no)
 
-oldpeak: depresión ST inducida por el ejercicio en relación al reposo
+oldpeak: depresión ST inducida por el ejercicio en relación al reposo (rango estudiado: 0.0-6.2)
 
 slope: Pendiente del segmento ST del ejercicio máximo. (1: ascendente, 2: plana, 3: descendente)
 
