@@ -198,6 +198,32 @@ prediction.text
 
 '{"predicted_class":0}'
 ``` 
+Ejemplo 2:
+
+``` 
+item_features =  {
+    "age": 56,
+    "sex": 1,
+    "cp":  3,
+    "trestbps": 120,
+    "chol": 193,
+    "fbs":  0,
+    "restecg": 0,
+    "thalach": 162,
+    "exang": 0,
+    "oldpeak": 1.9,
+    "slope": 1,
+    "ca": 0,
+    "thal": 3
+}
+
+prediction = response_from_server(full_url, item_features)
+prediction.text
+
+¡Todo funcionó bien!
+
+'{"predicted_class":1}'
+```
 
 
 
