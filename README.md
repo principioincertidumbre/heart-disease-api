@@ -10,7 +10,6 @@ La fuente de los datos utilizados para entrenar el modelo es [Heart Disease Data
 
 El artículo científico ["International application of a new probability algorithm for the diagnosis of coronary artery disease"](https://www.ajconline.org/article/0002-9149(89)90524-9/pdf), el cual analiza la información contenida en las bases de datos originales, fue publicado por R. Detrano, A. Jánosi, W. Steinbrunn, M. Pfisterer, J. Schmid, S. Sandhu, K. Guppy, S. Lee, V. Froelicher  el año 1989 en la revista American Journal of Cardiology.
 
-Published in American Journal of Cardiology
 ## Disclaimer
 **La información y API contenidas en este repositorio no deben utilizarse durante ninguna emergencia de salud, ni para el diagnóstico o tratamiento de alguna patología o trauma por accidente. Por favor, consulte a un médico.**
 
