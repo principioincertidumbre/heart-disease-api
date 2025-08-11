@@ -18,8 +18,10 @@ El artículo científico ["International application of a new probability algori
 ```
 |-model (contiene el modelo XGBoost)
 |-notebooks (contiene Jupyter Notebook para probar el servidor de forma local e interactiva)
-|-src (contiene código fuente para desplegar la API)
 |-02_client.ipynb
+|-LICENSE (licencia del código)
+|-main.py (archivo de arranque servidor desplegado en Render)
+|-render.yaml (archivo Render blueprint) 
 |-requirements.txt (dependencias para utilizar el servidor y cliente en forma local)
 |-server.py (servidor local)
 ```
@@ -118,7 +120,7 @@ python -m ipykernel install --user --name heart-disease-api
 ```
 jupyter lab
 ```
-## API en Render
+## API desplegada en Render
 
 Para realizar consultas de forma remota a la API, se encuentra disponible en la siguiente URL:
 
@@ -233,6 +235,7 @@ prediction.text
 
 '{"predicted_class":1}'
 ```
-
+## Licencia
+Este proyecto está bajo la licencia MIT. Consulte el archivo [LICENSE](https://github.com/principioincertidumbre/heart-disease-api/blob/main/LICENSE) para obtener más información.
 
 
