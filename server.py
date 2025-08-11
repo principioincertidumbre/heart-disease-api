@@ -5,9 +5,14 @@ import uvicorn
 from enum import Enum
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import StreamingResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 
-xgb = joblib.load("./model/heart_model.joblib")
+try:
+   xgb = joblib.load("./model/heart_model.joblib")
+except FileNotFoundError:
+    print("Error: heart_model.joblib no fue encontrado.")
+    model = None
+
 
 def predict_heart_disease(features_patient, confidence):
     """Recibe un vector de características de un paciente y predice si padece o no una enfermedad cardíaca.
@@ -43,6 +48,12 @@ class Item(BaseModel):
     ca: int
     thal: int
 
+    @field_validator('*')
+    def is_positive(cls, value):
+        if value < 0:
+            raise ValueError(f'{value} Los valores ingresados deben ser positivos')
+        return value
+
 # Usando @app.get("/") definimos un método GET para el endpoint / (que sería como el "home").
 @app.get("/")
 def home():
@@ -53,17 +64,19 @@ def home():
 # Requiere como entrada el vector de características del viaje y el umbral de confianza para la clasificación.
 @app.post("/predict")
 def prediction(item: Item, confidence: float):
-
-
-    # 1. Correr el modelo de clasificación
-    features_patient = np.array([item.age, item.sex, item.cp, item.trestbps, item. chol, item.fbs,
+    try:
+       # 1. Correr el modelo de clasificación
+       features_patient = np.array([item.age, item.sex, item.cp, item.trestbps, item. chol, item.fbs,
                     item.restecg, item.thalach, item.exang, item.oldpeak, item.slope, item.ca, item.thal])
-    pred = predict_heart_disease(features_patient, confidence)
+       pred = predict_heart_disease(features_patient, confidence)
 
-    # 2. Transmitir la respuesta de vuelta al cliente
+       # 2. Transmitir la respuesta de vuelta al cliente
 
-    # Retornar el resultado de la predicción
-    return {'predicted_class': pred}
+       # Retornar el resultado de la predicción
+       return {'predicted_class': pred}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error interno: {e}")
+
 
 # Donde se hospedará el servidor
 host = "127.0.0.1"
