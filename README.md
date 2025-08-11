@@ -164,7 +164,7 @@ fbs: glucemia en ayunas (> 120 mg/dl, 1 = verdadero; 0 = falso)
 
 restecg: resultados del electrocardiograma en reposo (0: normal, 1: tiene anomalías de la onda ST-T (inversiones de la onda T y/o elevación o depresión ST de > 0.05 mV), 2: muestra probablemente o definitivamente hipertrofia del ventrículo izquierdo según los criterios de Estes)
 
-thalach: frecuencia cardíaca máxima alcanzada (rango estudiado: 71-202)
+thalach: frecuencia cardíaca máxima alcanzada (rango estudiado: 71-202 latidos por minuto)
 
 exang: angina inducida por ejercicio (1 = sí, 0 = no)
 
