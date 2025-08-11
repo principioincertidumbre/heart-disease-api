@@ -1,9 +1,14 @@
 import joblib
 import numpy as np
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 
-heart_model = joblib.load("./model/heart_model.joblib")
+try:
+   xgb = joblib.load("./model/heart_model.joblib")
+except FileNotFoundError:
+    print("Error: heart_model.joblib no fue encontrado.")
+    model = None
+
 
 def predict_heart_disease(features_patient, confidence):
     """Recibe un vector de características de un paciente y predice si padece o no una enfermedad cardíaca.
@@ -13,7 +18,7 @@ def predict_heart_disease(features_patient, confidence):
         confidence (float, opcional): Nivel de confianza. Por defecto es 0.5.
     """
 
-    pred_value = heart_model.predict_proba(features_patient.reshape(1, -1))[0][1]
+    pred_value = xgb.predict_proba(features_patient.reshape(1, -1))[0][1]
     if pred_value >= confidence:
       return 1
     else:
@@ -39,6 +44,12 @@ class Item(BaseModel):
     ca: int
     thal: int
 
+    @field_validator('*')
+    def is_positive(cls, value):
+        if value < 0:
+            raise ValueError(f'{value} Los valores ingresados deben ser positivos')
+        return value
+
 # Usando @app.get("/") definimos un método GET para el endpoint / (que sería como el "home").
 @app.get("/")
 def home():
@@ -49,14 +60,16 @@ def home():
 # Requiere como entrada el vector de características del viaje y el umbral de confianza para la clasificación.
 @app.post("/predict")
 def prediction(item: Item, confidence: float):
-
-
-    # 1. Correr el modelo de clasificación
-    features_patient = np.array([item.age, item.sex, item.cp, item.trestbps, item. chol, item.fbs,
+    try:
+       # 1. Correr el modelo de clasificación
+       features_patient = np.array([item.age, item.sex, item.cp, item.trestbps, item. chol, item.fbs,
                     item.restecg, item.thalach, item.exang, item.oldpeak, item.slope, item.ca, item.thal])
-    pred = predict_heart_disease(features_patient, confidence)
+       pred = predict_heart_disease(features_patient, confidence)
 
-    # 2. Transmitir la respuesta de vuelta al cliente
+       # 2. Transmitir la respuesta de vuelta al cliente
 
-    # Retornar el resultado de la predicción
-    return {'predicted_class': pred}
+       # Retornar el resultado de la predicción
+       return {'predicted_class': pred}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error interno: {e}")
+
