@@ -17,8 +17,8 @@ El artículo científico ["International application of a new probability algori
 
 ```
 |-model (contiene el modelo XGBoost)
-|-notebooks (contiene Jupyter Notebook para probar el servidor de forma local e interactiva)
-|-02_client.ipynb
+|-01_server_heart_disease_api.ipynb (Jupyter Notebook para probar el servidor de forma local e interactiva)
+|-02_client.ipynb (cliente para probar la API en Render o de forma local si cambia el parámetro base_url a 'http://localhost:8000')
 |-LICENSE (licencia del código)
 |-main.py (archivo de arranque servidor desplegado en Render)
 |-render.yaml (archivo Render blueprint) 
