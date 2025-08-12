@@ -159,7 +159,7 @@ def home():
 
 # Este endpoint maneja la lógica necesaria para clasificar.
 # Requiere como entrada el vector de características del viaje y el umbral de confianza para la clasificación.
-@app.post("/predict")
+@app.post("/api/predict")
 def prediction(item: Item, confidence: float):
     try:
        # 1. Correr el modelo de clasificación
