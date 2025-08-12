@@ -44,16 +44,114 @@ class Item(BaseModel):
     ca: int
     thal: int
 
-    @field_validator('*')
-    def is_positive(cls, value):
-        if value < 0:
-            raise ValueError(f'{value} Los valores ingresados deben ser positivos')
+    @field_validator('age', mode='after')
+
+    @classmethod
+    def is_age(cls, value: int) -> int:
+        if value > 77 or value < 29:
+            raise ValueError(f'{value} fuera de rango')
         return value
 
+    @field_validator('sex', mode='after')
+
+    @classmethod
+    def is_sex(cls, value: int) -> int:
+        if value > 1 or value < 0:
+            raise ValueError(f'{value} no es válido')
+        return value
+
+    @field_validator('cp', mode='after')
+
+    @classmethod
+    def is_cp(cls, value: int) -> int:
+        if value > 4 or value < 0:
+            raise ValueError(f'{value} no es válido')
+        return value
+
+
+    @field_validator('trestbps', mode='after')
+
+    @classmethod
+    def is_trestbps(cls, value: int) -> int:
+        if value > 200 or value < 94:
+            raise ValueError(f'{value} fuera de rango')
+        return value
+
+    @field_validator('chol', mode='after')
+
+    @classmethod
+    def is_chol(cls, value: int) -> int:
+        if value > 564 or value < 126:
+            raise ValueError(f'{value} fuera de rango')
+        return value
+
+    @field_validator('fbs', mode='after')
+
+    @classmethod
+    def is_fbs(cls, value: int) -> int:
+        if value > 1 or value < 0:
+            raise ValueError(f'{value} no es válido')
+        return value
+
+    @field_validator('restecg', mode='after')
+
+    @classmethod
+    def is_restecg(cls, value: int) -> int:
+        if value > 2 or value < 0:
+            raise ValueError(f'{value} no es válido')
+        return value
+
+    @field_validator('thalach', mode='after')
+
+    @classmethod
+    def is_thalach(cls, value: int) -> int:
+        if value > 202 or value < 71:
+            raise ValueError(f'{value} fuera de rango')
+        return value
+
+    @field_validator('exang', mode='after')
+
+    @classmethod
+    def is_exang(cls, value: int) -> int:
+        if value > 1 or value < 0:
+            raise ValueError(f'{value} no es válido')
+        return value
+
+    @field_validator('oldpeak', mode='after')
+
+    @classmethod
+    def is_oldpeak(cls, value: float) -> float:
+        if value > 6.2 or value < 0.0:
+            raise ValueError(f'{value} fuera de rango')
+        return value
+
+    @field_validator('slope', mode='after')
+
+    @classmethod
+    def is_slope(cls, value: int) -> int:
+        if value > 3 or value < 0:
+            raise ValueError(f'{value} no es válido')
+        return value
+
+    @field_validator('ca', mode='after')
+
+    @classmethod
+    def is_ca(cls, value: int) -> int:
+        if value > 3 or value < 0:
+            raise ValueError(f'{value} no es válido')
+        return value
+
+    @field_validator('thal', mode='after')
+
+    @classmethod
+    def is_thal(cls, value: int) -> int:
+        if value > 3 or value < 0:
+            raise ValueError(f'{value} no es válido')
+        return value
 # Usando @app.get("/") definimos un método GET para el endpoint / (que sería como el "home").
 @app.get("/")
 def home():
-    return "¡Felicitaciones! Tu API está funcionando según lo esperado."
+    return "¡Felicitaciones! Tu API está funcionando según lo esperado. Anda ahora a http://localhost:8000/docs."
 
 
 # Este endpoint maneja la lógica necesaria para clasificar.
