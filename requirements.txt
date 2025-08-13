@@ -5,3 +5,4 @@ joblib
 xgboost==3.0.2
 pydantic
 nest_asyncio
+ipykernel
