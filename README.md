@@ -47,7 +47,7 @@ Todo el trabajo que realicemos con este código será en este entorno. Así que 
 
 ### 2. Instalando las dependencias usando PIP
 
-Antes de seguir, verifica que en el terminal de Anaconda estés dentro del directorio heart-disease-api, el cual incluye el archivo requirements.txt. Este archivo enlista todas las dependencias necesarias y podemos usarlo para instalarlas todas:
+Antes de seguir, verifique en el terminal de Anaconda que Ud. esté dentro del directorio heart-disease-api, el cual incluye el archivo requirements.txt. Este archivo enlista todas las dependencias necesarias.
 
 ```
 pip install -r requirements.txt
@@ -67,11 +67,11 @@ Después de completar estos pasos puede ejecutar el script del servidor desde la
 ## Pasos previos usando uv
 
 Prerequisito: Tener [uv](https://docs.astral.sh/uv/) instalado en tu computador.
-uv es una herramienta moderna y rápida para gestionar entornos virtuales y dependencias de Python. Como alternativa a conda, puedes usar uv que ofrece un rendimiento significativamente mejor.
+uv es una herramienta moderna y rápida para gestionar entornos virtuales y dependencias de Python. Como alternativa a conda, puede usar uv que ofrece un rendimiento significativamente mejor.
 
 ### 1. Instalando uv
 
-Si no tienes uv instalado, puedes instalarlo con:
+Si no tiene uv instalado, puede instalarlo con:
 
 * Windows (PowerShell)
   ```
@@ -88,7 +88,7 @@ Si no tienes uv instalado, puedes instalarlo con:
   ```
 
 ### 2. Creando el entorno virtual con uv
-Navega al directorio heart-disease-api y crea un entorno virtual:
+Navegue al directorio heart-disease-api y crea un entorno virtual:
  ```
  uv venv
  ```
@@ -105,7 +105,7 @@ Navega al directorio heart-disease-api y crea un entorno virtual:
 ```
 ### 4. Instalando las dependencias con uv
 
-Con el entorno activado, instala Jupyter Lab si no lo ha instalado anteriormente:
+Con el entorno activado, instale Jupyter Lab si no lo ha instalado anteriormente:
 
 ```
 uv pip install jupyter lab
@@ -114,7 +114,7 @@ Si prefiere instalar Jupyter Lab a nivel de sistema operativo:
 ``` 
 uvx jupyter lab
 ```
-Luego instala todas las dependencias directamente desde requirements.txt:
+Luego instale todas las dependencias directamente desde requirements.txt:
 ``` 
 uv pip install -r requirements.txt
 ```
