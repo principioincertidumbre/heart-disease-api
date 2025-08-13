@@ -33,21 +33,21 @@ git clone https://github.com/principioincertidumbre/heart-disease-api/
 
 ## Pasos previos usando Conda
 
-Prerequisito: Tener [conda]( https://docs.conda.io/en/latest/contributing.html) instalado en tu computador.
+Prerequisito: Tener [conda]( https://docs.conda.io/en/latest/contributing.html) instalado en su computador.
 ### 1. Creando el entorno virtual (Virtual Environment)
 ```
 conda create --name heart-disease-api python=3.11
 ```
-Luego debemos activar el entorno virtual:
+Luego debe activar el entorno virtual:
 
 ```
 conda activate heart-disease-api
 ```
-Todo el trabajo que realicemos con este código será en este entorno. Así que al trabajar con estos archivos siempre tiene que estar activo el entorno virtual heart-disease-api.
+Todo el trabajo que realice con este código será en este entorno. Así que al trabajar con estos archivos siempre tiene que estar activo el entorno virtual heart-disease-api.
 
 ### 2. Instalando las dependencias usando PIP
 
-Antes de seguir, verifique en el terminal de Anaconda que Ud. esté dentro del directorio heart-disease-api, el cual incluye el archivo requirements.txt. Este archivo enlista todas las dependencias necesarias.
+Antes de seguir, verifique en el terminal de Anaconda que está dentro del directorio heart-disease-api, el cual incluye el archivo requirements.txt. Este archivo enlista todas las dependencias necesarias.
 
 ```
 pip install -r requirements.txt
