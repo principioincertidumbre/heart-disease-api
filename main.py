@@ -159,7 +159,7 @@ def home():
 
 # Este endpoint maneja la lógica necesaria para clasificar.
 # Requiere como entrada el vector de características del viaje y el umbral de confianza para la clasificación.
-@app.post("https://heart-disease-api-m7x0.onrender.com/predict")
+@app.post("/predict")
 def prediction(item: Item, confidence: float):
     try:
        # 1. Correr el modelo de clasificación
