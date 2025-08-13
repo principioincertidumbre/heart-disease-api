@@ -38,16 +38,23 @@ Prerequisito: Tener [conda]( https://docs.conda.io/en/latest/contributing.html) 
 ```
 conda create --name heart-disease-api python=3.11
 ```
-Luego debemos activar el ambiente virtual:
+Luego debemos activar el entorno virtual:
 
 ```
 conda activate heart-disease-api
 ```
+Todo el trabajo que realicemos con este código será en este entorno. Así que al trabajar con estos archivos siempre tiene que estar activo el entorno virtual heart-disease-api.
+
 ### 2. Instalando las dependencias usando PIP
+
+Antes de seguir, verifica que en el terminal de Anaconda estés dentro del directorio heart-disease-api, el cual incluye el archivo requirements.txt. Este archivo enlista todas las dependencias necesarias y podemos usarlo para instalarlas todas:
+
 ```
 pip install -r requirements.txt
 ```
-### 3. Instalando el kernel de Jupyter Lab correspondiente al proyecto
+Este comando puede demorar un rato dependiendo de la velocidad del computador y la de la conexión a Internet. 
+
+### 3. Enlazando el kernel de Jupyter Lab correspondiente al proyecto
 ```
 python -m ipykernel install --user --name heart-disease-api
 ``` 
@@ -113,7 +120,7 @@ uv pip install -r requirements.txt
 ```
 Este comando es significativamente más rápido que pip tradicional y maneja mejor la resolución de dependencias.
 
-### 5. Instalando el kernel de Jupyter Lab correspondiente al proyecto
+### 5. Enlazando el kernel de Jupyter correspondiente al proyecto
 ```
 python -m ipykernel install --user --name heart-disease-api
 ``` 
@@ -121,6 +128,8 @@ python -m ipykernel install --user --name heart-disease-api
 ```
 jupyter lab
 ```
+Después de completar estos pasos puede ejecutar el script del servidor desde la terminal de Python 3 y el Jupyter Notebook del cliente localmente.
+
 ## API desplegada en Render
 
 Para realizar consultas de forma remota a la API, se encuentra disponible en la siguiente URL:
