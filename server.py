@@ -5,13 +5,13 @@ import uvicorn
 from enum import Enum
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import StreamingResponse
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, ValidationError, field_validator
 
 try:
    xgb = joblib.load("./model/heart_model.joblib")
 except FileNotFoundError:
     print("Error: heart_model.joblib no fue encontrado.")
-    model = None
+
 
 
 def predict_heart_disease(features_patient, confidence):
@@ -163,18 +163,16 @@ def home():
 # Requiere como entrada el vector de características del viaje y el umbral de confianza para la clasificación.
 @app.post("/predict")
 def prediction(item: Item, confidence: float):
-    try:
-       # 1. Correr el modelo de clasificación
-       features_patient = np.array([item.age, item.sex, item.cp, item.trestbps, item. chol, item.fbs,
+    # 1. Correr el modelo de clasificación
+    features_patient = np.array([item.age, item.sex, item.cp, item.trestbps, item. chol, item.fbs,
                     item.restecg, item.thalach, item.exang, item.oldpeak, item.slope, item.ca, item.thal])
-       pred = predict_heart_disease(features_patient, confidence)
+    pred = predict_heart_disease(features_patient, confidence)
 
-       # 2. Transmitir la respuesta de vuelta al cliente
+    # 2. Transmitir la respuesta de vuelta al cliente
 
-       # Retornar el resultado de la predicción
-       return {'predicted_class': pred}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error interno: {e}")
+    # Retornar el resultado de la predicción
+    return {'predicted_class': pred}
+
 
 
 # Donde se hospedará el servidor
