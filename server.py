@@ -11,7 +11,7 @@ try:
    xgb = joblib.load("./model/heart_model.joblib")
 except FileNotFoundError:
     print("Error: heart_model.joblib no fue encontrado.")
-
+    raise SystemExit
 
 
 def predict_heart_disease(features_patient, confidence):
@@ -163,6 +163,8 @@ def home():
 # Requiere como entrada el vector de características del viaje y el umbral de confianza para la clasificación.
 @app.post("/predict")
 def prediction(item: Item, confidence: float):
+    if model is None:
+        raise HTTPException(status_code=500, detail="Modelo no fue cargado correctamente.")
     # 1. Correr el modelo de clasificación
     features_patient = np.array([item.age, item.sex, item.cp, item.trestbps, item. chol, item.fbs,
                     item.restecg, item.thalach, item.exang, item.oldpeak, item.slope, item.ca, item.thal])
