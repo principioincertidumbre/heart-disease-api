@@ -138,7 +138,7 @@ https://heart-disease-api-m7x0.onrender.com/
 
 ## Información para realizar consultas a la API
 
-Para realizar consultas desde su computador, el Jupyter Notebook que contiene el cliente le permite ajustar los valores del JSON de entrada y el nivel de confianza de los resultados entregados por el modelo.
+Para realizar consultas desde su computador, el Jupyter Notebook que contiene el cliente le permite ajustar los valores del JSON de entrada y la puntuación de confianza de los resultados entregados por el modelo.
 
 ### Estructura JSON de entrada
 ``` 
