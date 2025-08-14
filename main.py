@@ -8,7 +8,7 @@ try:
    xgb = joblib.load("./model/heart_model.joblib")
 except FileNotFoundError:
     print("Error: heart_model.joblib no fue encontrado.")
-
+    raise SystemExit
 
 
 def predict_heart_disease(features_patient, confidence):
