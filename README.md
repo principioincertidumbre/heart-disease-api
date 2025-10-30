@@ -16,7 +16,7 @@ El artículo científico ["International application of a new probability algori
 ## Estructura del repositorio
 
 ```
-|-model (contiene el modelo XGBoost)
+|-model (contiene el modelo CatBoost)
 |-01_server_heart_disease_api.ipynb (Jupyter Notebook para probar el servidor de forma local e interactiva)
 |-02_client.ipynb (cliente para probar la API desplegada en Render.
  Se puede probar de forma local si cambia el parámetro base_url a 'http://localhost:8000')
