@@ -2,7 +2,7 @@ fastapi[all]
 uvicorn
 numpy
 joblib
-xgboost==3.0.2
+catboost==1.2.8
 pydantic
 nest_asyncio
 ipykernel
