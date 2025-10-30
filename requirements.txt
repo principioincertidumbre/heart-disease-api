@@ -7,3 +7,4 @@ pydantic
 nest_asyncio
 ipykernel
 requests
+venn_abers
