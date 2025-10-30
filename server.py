@@ -8,7 +8,7 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, ValidationError, field_validator
 
 try:
-   xgb = joblib.load("./model/heart_model.joblib")
+   cbt = joblib.load("./model/heart_model.joblib")
 except FileNotFoundError:
     print("Error: heart_model.joblib no fue encontrado.")
     raise SystemExit
@@ -22,7 +22,7 @@ def predict_heart_disease(features_patient, confidence):
         confidence (float, opcional): Nivel de confianza. Por defecto es 0.5.
     """
 
-    pred_value = xgb.predict_proba(features_patient.reshape(1, -1))[0][1]
+    pred_value = cbt.predict_proba(features_patient.reshape(1, -1))[0][1]
     if pred_value >= confidence:
       return 1
     else:
